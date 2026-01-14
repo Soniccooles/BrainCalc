@@ -45,7 +45,6 @@ android {
 
 dependencies {
 
-    val navigation = "2.9.5"
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.navigation.dynamic.features.fragment)

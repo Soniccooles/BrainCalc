@@ -1,4 +1,17 @@
 package com.itandrew.braincalc.di
 
-class AppComponent {
+import dagger.Component
+import dagger.Module
+
+@Component(
+    modules = [AppModule::class]
+)
+interface AppComponent {
 }
+
+@Module(
+    includes = [
+        NetworkModule::class,
+        AppBindsModule::class,
+    ])
+class AppModule

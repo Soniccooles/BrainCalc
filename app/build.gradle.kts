@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("androidx.navigation.safeargs.kotlin")
     id("com.google.devtools.ksp")
+
 }
 
 android {
@@ -37,7 +38,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-
     kotlinOptions {
         jvmTarget = "11"
     }
@@ -63,8 +63,8 @@ dependencies {
     implementation(libs.converter.gson)
 
     // dagger
-    implementation(libs.dagger)
-    ksp(libs.dagger.compiler)
+    implementation("com.google.dagger:dagger:2.51.1")
+    ksp("com.google.dagger:dagger-compiler:2.51.1")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

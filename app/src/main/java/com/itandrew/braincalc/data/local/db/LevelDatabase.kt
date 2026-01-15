@@ -8,7 +8,8 @@ import com.itandrew.braincalc.data.local.model.LevelEntity
     entities = [
         LevelEntity::class
     ],
-    version = 1
+    version = 1,
+    exportSchema = false
     )
 abstract class LevelsDatabase : RoomDatabase() {
     abstract val levelsDao: LevelsDAO

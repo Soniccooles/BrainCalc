@@ -5,8 +5,16 @@ import androidx.room.Room
 import com.itandrew.braincalc.MyApplication
 import com.itandrew.braincalc.data.local.db.LevelsDAO
 import com.itandrew.braincalc.data.local.db.LevelsDatabase
+import com.itandrew.braincalc.data.local.repository.LevelsRepository
+import com.itandrew.braincalc.data.local.repository.LevelsRepositoryImpl
 import com.itandrew.braincalc.data.remote.ApiRepository
 import com.itandrew.braincalc.data.remote.ApiRepositoryImpl
+import com.itandrew.braincalc.domain.DownloadLevelsUseCase
+import com.itandrew.braincalc.domain.DownloadLevelsUseCaseImpl
+import com.itandrew.braincalc.domain.GetAllLevelIdsUseCase
+import com.itandrew.braincalc.domain.GetAllLevelIdsUseCaseImpl
+import com.itandrew.braincalc.domain.GetLevelByIdUseCase
+import com.itandrew.braincalc.domain.GetLevelByIdUseCaseImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -17,7 +25,19 @@ import javax.inject.Singleton
 interface AppBindsModule {
 
     @Binds
-    fun bindLevelRepository(apiRepositoryImpl: ApiRepositoryImpl): ApiRepository
+    fun bindApiRepository(apiRepositoryImpl: ApiRepositoryImpl): ApiRepository
+
+    @Binds
+    fun bindLevelsRepository(levelsRepositoryImpl: LevelsRepositoryImpl): LevelsRepository
+
+    @Binds
+    fun bindDownloadLevelsUseCase(downloadLevelsUseCaseImpl: DownloadLevelsUseCaseImpl): DownloadLevelsUseCase
+
+    @Binds
+    fun bindGetAllLevelIdsUseCase(getAllLevelIdsUseCaseImpl: GetAllLevelIdsUseCaseImpl): GetAllLevelIdsUseCase
+
+    @Binds
+    fun bundGetLevelByIdUseCase(getLevelByIdUseCaseImpl: GetLevelByIdUseCaseImpl): GetLevelByIdUseCase
 
     companion object {
 

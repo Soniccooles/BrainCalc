@@ -29,7 +29,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.test()
+        viewModel.downloadLevels()
+        viewModel.levelLiveData.observe(viewLifecycleOwner){
+            val level = it
+        }
+        viewModel.loadLevel(1)
     }
 
     companion object {

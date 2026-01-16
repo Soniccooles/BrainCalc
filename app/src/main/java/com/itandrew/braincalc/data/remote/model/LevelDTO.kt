@@ -12,12 +12,12 @@ data class LevelDTO (
     @SerializedName("cards") val cards: List<Card>?,
     @SerializedName("hints") val hints: List<Hint>,
     @SerializedName("solution") val solution: List<Replacement>,
-    @SerializedName("reward") val reward: Reward,
+    @SerializedName("reward") val reward: Int,
     )
 
 data class Card(
-    @SerializedName("key") val key: String,
-    @SerializedName("limit") val id: Int,
+    val key: String,
+    @SerializedName("limit") val limit: Int,
 )
 
 data class Hint(
@@ -29,10 +29,6 @@ data class Hint(
 data class Replacement(
     @SerializedName("gap") val gap: String,
     @SerializedName("value") val value: String,
-)
-
-data class Reward(
-    @SerializedName("coins") val coins: Int,
 )
 
 

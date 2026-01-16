@@ -2,6 +2,8 @@ package com.itandrew.braincalc.data.local.db
 
 import androidx.room.Dao
 import androidx.room.Delete
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Upsert
 import com.itandrew.braincalc.data.local.model.LevelEntity
@@ -18,4 +20,12 @@ interface LevelsDAO {
 
     @Query("SELECT * FROM ${LevelEntity.TABLE_NAME} ORDER BY id ASC")
     fun getAllLevels(): Flow<List<LevelEntity>>
+
+    @Query("SELECT id FROM ${LevelEntity.TABLE_NAME}")
+    suspend fun getAllIds(): List<Int>
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertAll(
+        levels: List<LevelEntity>
+    )
 }

@@ -8,6 +8,9 @@ import javax.inject.Inject
 interface LevelsRepository {
     val levelsFlow: Flow<List<LevelEntity>>
     suspend fun createNewLevel(level: LevelEntity)
+    suspend fun getAllIds(): List<Int>
+
+    suspend fun insertLevels(levels: List<LevelEntity>)
 }
 
 class LevelsRepositoryImpl @Inject constructor(
@@ -19,5 +22,13 @@ class LevelsRepositoryImpl @Inject constructor(
 
     override suspend fun createNewLevel(level: LevelEntity) {
         dao.upsertLevel(level)
+    }
+
+    override suspend fun getAllIds(): List<Int> {
+        return dao.getAllIds()
+    }
+
+    override suspend fun insertLevels(levels: List<LevelEntity>) {
+        dao.insertAll(levels)
     }
 }

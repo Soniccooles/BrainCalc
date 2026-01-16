@@ -6,12 +6,13 @@ import com.itandrew.braincalc.di.DaggerAppComponent
 
 class MyApplication : Application() {
 
-    lateinit var AppComponent : AppComponent
+    lateinit var appComponent: AppComponent
         private set
 
-    override fun onCreate(){
+    override fun onCreate() {
         super.onCreate()
-        AppComponent = DaggerAppComponent
+        appComponent = DaggerAppComponent
             .create()
     }
+
 }

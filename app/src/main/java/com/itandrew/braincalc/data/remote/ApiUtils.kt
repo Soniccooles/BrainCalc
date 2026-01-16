@@ -5,7 +5,7 @@ import retrofit2.Response
 
 class ApiUtils {
     companion object {
-        fun <T>safeApiCall(call: () -> Response<T>) : Result<T?>{
+        suspend fun <T>safeApiCall( call: suspend () -> Response<T>) : Result<T?>{
             kotlin.runCatching{
                 call()
             }.fold(

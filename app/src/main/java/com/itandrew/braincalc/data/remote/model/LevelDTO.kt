@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import com.itandrew.braincalc.data.generals.InputType
 import com.itandrew.braincalc.data.generals.Type
 
-data class LevelsDTO (
+data class LevelDTO (
     @SerializedName("id") val id: Int,
     @SerializedName("input_type") val inputType: InputType,
     @SerializedName("type") val type: Type,
@@ -12,7 +12,7 @@ data class LevelsDTO (
     @SerializedName("cards") val cards: List<Card>?,
     @SerializedName("hints") val hints: List<Hint>,
     @SerializedName("solution") val solution: List<Replacement>,
-    @SerializedName("reward") val reward: Int,
+    @SerializedName("reward") val reward: Reward,
     )
 
 data class Card(
@@ -29,6 +29,10 @@ data class Hint(
 data class Replacement(
     @SerializedName("gap") val gap: String,
     @SerializedName("value") val value: String,
+)
+
+data class Reward(
+    @SerializedName("coins") val coins: Int,
 )
 
 

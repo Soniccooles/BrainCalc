@@ -1,16 +1,16 @@
 package com.itandrew.braincalc.data.remote
 
-import com.itandrew.braincalc.data.remote.model.LevelsDTO
+import com.itandrew.braincalc.data.remote.model.LevelDTO
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface ApiService {
 
-    @GET("/levels")
-    fun getAllLevels() : Response<List<LevelsDTO>?>
+    @GET("levels")
+    suspend fun getAllLevels() : Response<List<LevelDTO>?>
 
-    @GET("/level/{id}")
-    fun getLevel(@Path("id") id : Int ) : Response<LevelsDTO?>
+    @GET("level/{id}")
+    suspend fun getLevel(@Path("id") id : Int ) : Response<LevelDTO?>
 
 }

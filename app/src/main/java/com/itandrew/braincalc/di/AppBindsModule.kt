@@ -5,8 +5,8 @@ import androidx.room.Room
 import com.itandrew.braincalc.MyApplication
 import com.itandrew.braincalc.data.local.db.LevelsDAO
 import com.itandrew.braincalc.data.local.db.LevelsDatabase
-import com.itandrew.braincalc.data.remote.LevelRepository
-import com.itandrew.braincalc.data.remote.LevelRepositoryImpl
+import com.itandrew.braincalc.data.remote.ApiRepository
+import com.itandrew.braincalc.data.remote.ApiRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 interface AppBindsModule {
 
     @Binds
-    fun bindLevelRepository(levelRepositoryImpl: LevelRepositoryImpl): LevelRepository
+    fun bindLevelRepository(apiRepositoryImpl: ApiRepositoryImpl): ApiRepository
 
     companion object {
 

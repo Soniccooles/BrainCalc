@@ -13,7 +13,7 @@ object NetworkModule {
     @Provides
     fun provideApiService() : ApiService =
         Retrofit.Builder()
-            .baseUrl("http://193.23.219.232:8080/")
+            .baseUrl("http://193.23.219.232:8080")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create()
